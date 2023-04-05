@@ -1,7 +1,7 @@
 {
   "name": "postcss-angular",
   "version": "1.0.0",
-  "description": "",
+  "description": "A PostCSS syntax for angular components.",
   "main": "dist/index.js",
   "scripts": {
     "install:global": "npm uninstall -g postcss-angular && npm install -g ./",
@@ -15,7 +15,7 @@
   "files": [
     "dist"
   ],
-  "author": "",
+  "author": "Christoph Bühler",
   "license": "ISC",
   "devDependencies": {
     "@angular/core": "^15.2.5",
@@ -40,5 +40,21 @@
     "postcss": "^8.4.21",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s1seven/postcss-angular.git"
+  },
+  "keywords": [
+    "postcss",
+    "angular",
+    "stylelint"
+  ],
+  "bugs": {
+    "url": "https://github.com/s1seven/postcss-angular/issues"
+  },
+  "homepage": "https://github.com/s1seven/postcss-angular#readme"
 }
