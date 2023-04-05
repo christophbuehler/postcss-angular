@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES6",
+    "moduleResolution": "node",
+    "types": ["node", "mocha", "chai"]
+  },
+  "include": ["test/**/*"]
+}

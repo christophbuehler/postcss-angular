@@ -1,0 +1,6 @@
+{
+  "stylelint.configFile": "${workspaceFolder}/.stylelintrc.json",
+  "stylelint.validate": ["scss", "typescript", "markdown"],
+  "stylelint.packageManager": "yarn",
+  "scss.validate": false
+}
