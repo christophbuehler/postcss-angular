@@ -35,6 +35,6 @@ To make postcss-angular work with stylelint in VSCode, you need to enable TypeSc
 
 `"stylelint.validate": ["scss", "typescript"]`
 
-You can use [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) to display errors and to auto fix auto-fixable problems.
+You can use [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) to display errors and to fix auto-fixable problems.
 
 ![postcss-angular in VSCode](postcss-angular-vscode.png)
