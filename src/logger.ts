@@ -1,5 +1,4 @@
-import { format, createLogger } from "winston";
-import DailyRotateFile from "winston-daily-rotate-file";
+import { format, createLogger, transports } from "winston";
 
 export const logger = createLogger({
   format: format.combine(
@@ -11,12 +10,9 @@ export const logger = createLogger({
     format.json()
   ),
   transports: [
-    new DailyRotateFile({
-      datePattern: "YYYY-MM-DD",
-      filename: "%DATE%.log",
-      dirname: ".postcss-angular",
-      maxFiles: "14d",
-      json: true,
+    new transports.File({
+      filename: ".postcss-angular/logs",
+      maxsize: 5 * 1024 * 1024, // The maximum size of a log file in bytes (5 MB in this example)
     }),
   ],
 });
