@@ -1,6 +1,6 @@
 {
   "name": "postcss-angular",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A PostCSS syntax for angular components.",
   "main": "dist/index.js",
   "scripts": {

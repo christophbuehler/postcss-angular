@@ -8,7 +8,7 @@ export const parse = (source: string, opts: ProcessOptions): Root => {
 
   logger.info(`Parsing ${from}`);
 
-  const document = new Document();
+  const document = postcssParse("", { from });
 
   try {
     const allStyles = getComponentStyles(sourceString, from);

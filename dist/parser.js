@@ -8,7 +8,7 @@ const parse = (source, opts) => {
     const sourceString = String(source);
     const { from } = opts;
     logger_1.logger.info(`Parsing ${from}`);
-    const document = new postcss_1.Document();
+    const document = (0, postcss_1.parse)("", { from });
     try {
         const allStyles = (0, get_component_metadata_1.getComponentStyles)(sourceString, from);
         logger_1.logger.info(`Located ${allStyles.length} inline styles.`);
