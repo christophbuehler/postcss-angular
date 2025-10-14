@@ -10,6 +10,16 @@ function getComponentStyles(content, path) {
     return objectLiteralExpressions.flatMap(({ properties }) => properties
         .filter(typescript_1.isPropertyAssignment)
         .filter((property) => property.name.text === "styles")
-        .flatMap((property) => property.initializer.elements.filter((element) => element.kind === typescript_1.SyntaxKind.NoSubstitutionTemplateLiteral)));
+        .flatMap((property) => {
+        const initializer = property.initializer;
+        if (initializer.kind === typescript_1.SyntaxKind.ArrayLiteralExpression) {
+            return initializer.elements.filter((element) => element.kind === typescript_1.SyntaxKind.NoSubstitutionTemplateLiteral);
+        }
+        if (initializer.kind === typescript_1.SyntaxKind.NoSubstitutionTemplateLiteral ||
+            initializer.kind === typescript_1.SyntaxKind.StringLiteral) {
+            return [initializer];
+        }
+        return [];
+    }));
 }
 exports.getComponentStyles = getComponentStyles;
