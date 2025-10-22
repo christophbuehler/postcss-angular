@@ -13,11 +13,13 @@ function getComponentStyles(content, path) {
         .flatMap((property) => {
         const initializer = property.initializer;
         if (initializer.kind === typescript_1.SyntaxKind.ArrayLiteralExpression) {
-            return initializer.elements.filter((element) => element.kind === typescript_1.SyntaxKind.NoSubstitutionTemplateLiteral);
+            return initializer.elements.filter((element) => element.kind === typescript_1.SyntaxKind.NoSubstitutionTemplateLiteral &&
+                element.text.trim().length > 0);
         }
         if (initializer.kind === typescript_1.SyntaxKind.NoSubstitutionTemplateLiteral ||
             initializer.kind === typescript_1.SyntaxKind.StringLiteral) {
-            return [initializer];
+            const text = initializer.text;
+            return text.trim().length > 0 ? [initializer] : [];
         }
         return [];
     }));
