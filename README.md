@@ -38,3 +38,13 @@ To make postcss-angular work with stylelint in VSCode, you need to enable TypeSc
 You can use [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) to display errors and to fix auto-fixable problems.
 
 ![postcss-angular in VSCode](postcss-angular-vscode.png)
+
+## Logging
+
+By default, postcss-angular does not create any log files. If you need to enable logging for debugging purposes, set the `POSTCSS_ANGULAR_LOGGING` environment variable to `true`:
+
+```bash
+POSTCSS_ANGULAR_LOGGING=true stylelint "**/*.component.ts"
+```
+
+When enabled, logs will be written to `.postcss-angular/logs` in the current directory.
