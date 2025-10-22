@@ -1,6 +1,6 @@
 {
   "name": "postcss-angular",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A PostCSS syntax for angular components.",
   "main": "dist/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Christoph Bühler",
   "license": "ISC",
   "devDependencies": {
-    "@angular/core": "^15.2.5",
+    "@angular/core": "^20.0.x",
     "@types/chai": "^4.3.4",
     "@types/jest": "^29.5.0",
     "@types/mocha": "^10.0.1",

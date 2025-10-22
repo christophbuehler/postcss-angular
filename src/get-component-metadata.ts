@@ -5,6 +5,7 @@ import {
   NoSubstitutionTemplateLiteral,
   ObjectLiteralExpression,
   ScriptTarget,
+  StringLiteral,
   SyntaxKind,
   createSourceFile,
   isPropertyAssignment,
@@ -29,12 +30,25 @@ export function getComponentStyles(
     properties
       .filter(isPropertyAssignment)
       .filter((property) => (property.name as Identifier).text === "styles")
-      .flatMap(
-        (property) =>
-          (property.initializer as ArrayLiteralExpression).elements.filter(
-            (element) =>
-              element.kind === SyntaxKind.NoSubstitutionTemplateLiteral
-          ) as NoSubstitutionTemplateLiteral[]
-      )
-  );
+      .flatMap((property) =>{
+        const initializer = property.initializer;
+
+        if (initializer.kind === SyntaxKind.ArrayLiteralExpression) {
+          return (initializer as ArrayLiteralExpression).elements.filter(
+            (element): element is NoSubstitutionTemplateLiteral =>
+              element.kind === SyntaxKind.NoSubstitutionTemplateLiteral &&
+              (element as NoSubstitutionTemplateLiteral).text.trim().length > 0
+          );
+        }
+
+        if (
+          initializer.kind === SyntaxKind.NoSubstitutionTemplateLiteral ||
+          initializer.kind === SyntaxKind.StringLiteral
+        ) {
+          const text = (initializer as StringLiteral | NoSubstitutionTemplateLiteral).text;
+          return text.trim().length > 0 ? [initializer as NoSubstitutionTemplateLiteral] : [];
+        }
+
+        return [];
+    }));
 }
